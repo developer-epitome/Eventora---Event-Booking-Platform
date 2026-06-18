@@ -9,6 +9,10 @@ import UserDashboard from './pages/UserDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentFailed from './pages/PaymentFailed';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
+
 
 function App() {
     return (
@@ -21,6 +25,8 @@ function App() {
                         <Route path="/events/:id" element={<EventDetail />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
                         <Route path="/dashboard" element={<UserDashboard />} />
                         <Route path="/admin" element={<AdminDashboard />} />
                         <Route path="/payment-success" element={<PaymentSuccess />} />
