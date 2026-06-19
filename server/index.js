@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth.js');
 const eventRoutes = require('./routes/events.js');
 const bookingRoutes = require('./routes/bookings.js');
+const contactRoutes = require('./routes/contactRoutes');
+
 
 
 dotenv.config();
@@ -21,6 +23,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/contact', contactRoutes);
 
 
 // Database Connection

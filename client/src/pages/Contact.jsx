@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+import axios from "axios";
+
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -15,17 +17,30 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        alert("Message sent successfully! We will contact you soon.");
+        try {
+            const response = await axios.post(
+               "http://localhost:5000/api/contact",
+               formData
+            );
 
-        setFormData({
-            name: "",
-            email: "",
-            message: ""
-        });
-    };
+            alert("Message sent successfully!");
+
+            setFormData({
+               name: "",
+               email: "",
+               message: ""
+            });
+
+            console.log(response.data);
+
+        } catch (error) {
+            console.error(error);
+           alert("Failed to send message");
+        }
+     };
 
     return (
         <div className="min-h-screen py-12">
